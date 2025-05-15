@@ -64,13 +64,15 @@
 
         /* Título com gradiente */
         h1 {
-            font-size: 24px;
-            margin-top: 0;
-            background: linear-gradient(90deg, #ff7e5f, #feb47b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+             font-size: 24px;
+             margin-top: 0;
+              background: linear-gradient(90deg, #ff7e5f, #feb47b);
+              -webkit-background-clip: text;
+             background-clip: text; /* Propriedade padrão para compatibilidade */
+             -webkit-text-fill-color: transparent;
+             text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
         }
+
 
         p {
             font-size: 16px;
