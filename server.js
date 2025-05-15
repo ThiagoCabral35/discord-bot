@@ -4,24 +4,30 @@ const bodyParser = require('body-parser');
 const app = express();
 const PORT = 3000;
 
-// Middleware para interpretar JSON
 app.use(bodyParser.json());
 
-// Rota principal para interações
-app.post('/interactions', (req, res) => {
-    const interaction = req.body;
+// Endpoint para verificação
+app.post('/role-verification', (req, res) => {
+    const { userId, guildId } = req.body;
 
-    console.log("Interação recebida:", interaction);
+    // Simulação de verificação
+    console.log(`Verificando o usuário ${userId} no servidor ${guildId}`);
 
-    // Resposta padrão ao Discord
-    res.send({
-        type: 4, // Responde diretamente no canal
-        data: {
-            content: "Comando recebido! Obrigado pelo uso do bot."
-        }
-    });
+    const verified = true; // Aqui você implementaria sua lógica de verificação
+
+    if (verified) {
+        res.status(200).send({
+            message: "Usuário verificado com sucesso!",
+            metadata: {
+                userId: userId,
+                role: "função-verificada"
+            }
+        });
+    } else {
+        res.status(403).send({
+            message: "Falha na verificação do usuário."
+        });
+    }
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
