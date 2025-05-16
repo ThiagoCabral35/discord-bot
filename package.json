@@ -1,26 +1,28 @@
 {
-  "name": "discordbot",
+  "name": "biricutico-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Inicializador interativo para o Biricutico, El Bot.",
+  "main": "start.js",
   "scripts": {
-    "start": "node bot.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node start.js"
   },
-  "keywords": [],
-  "author": "Thiago",
-  "license": "ISC",
   "dependencies": {
-    "@discordjs/voice": "^0.18.0",
-    "body-parser": "^2.2.0",
-    "chalk": "^4.1.2",
-    "discord.js": "^14.19.3",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "figlet": "^1.8.1",
-    "inquirer": "^8.2.5",
-    "open": "^10.1.2",
-    "spotify-web-api-node": "^5.0.2",
-    "youtube-dl-exec": "^3.0.21"
+    "inquirer": "^9.1.4"
   },
-  "description": ""
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2"
+  },
+  "pkg": {
+    "assets": [
+      "index.html",
+    "termos.html",
+    "privacidade.html",
+    "sorteio.html",
+    "biricutico.jpg",
+    "bingola.jpg"
+    ]
+  },
+  "author": "Seu Nome",
+  "license": "MIT"
 }

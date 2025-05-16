@@ -1,0 +1,28 @@
+{
+  "name": "biricutico-bot",
+  "version": "1.0.0",
+  "description": "Inicializador interativo para o Biricutico, El Bot.",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js"
+  },
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2"
+  },
+  "pkg": {
+    "assets": [
+      "index.html",
+    "termos.html",
+    "privacidade.html",
+    "sorteio.html",
+    "biricutico.jpg",
+    "bingola.jpg"
+    ]
+  },
+  "author": "Seu Nome",
+  "license": "MIT"
+}

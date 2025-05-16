@@ -1,29 +1,19 @@
 const inquirer = require('inquirer');
 const { exec } = require('child_process');
 const fs = require('fs');
-const chalk = require('chalk'); // Importação correta para novas versões do chalk
-const figlet = require('figlet');
 
 // Função para exibir o título estilizado
 function displayTitle() {
   console.clear();
-  console.log(
-    chalk.blue(
-      figlet.textSync('Biricutico, El Bot', {
-        font: 'Slant',
-        horizontalLayout: 'default',
-        verticalLayout: 'default',
-      })
-    )
-  );
-  console.log(chalk.yellow('O bot mais divertido para o seu Discord! 🚀\n'));
+  console.log('Biricutico, El Bot');
+  console.log('O bot mais divertido para o seu Discord! 🚀\n');
 }
 
 const options = [
   {
     type: 'list',
     name: 'action',
-    message: chalk.green('O que você deseja fazer?'),
+    message: 'O que você deseja fazer?',
     choices: [
       'Iniciar o Bot',
       'Acessar o Index (Links de Termos e Política)',
@@ -34,7 +24,7 @@ const options = [
 
 // Função para iniciar o bot
 function startBot() {
-  console.log(chalk.cyan('Iniciando o bot... 🚀'));
+  console.log('Iniciando o bot... 🚀');
   const botProcess = exec('node bot.js');
 
   botProcess.stdout.on('data', (data) => {
@@ -42,11 +32,11 @@ function startBot() {
   });
 
   botProcess.stderr.on('data', (data) => {
-    console.error(chalk.red(`Erro: ${data}`));
+    console.error(`Erro: ${data}`);
   });
 
   botProcess.on('close', (code) => {
-    console.log(chalk.magenta(`Bot encerrado com o código ${code}`));
+    console.log(`Bot encerrado com o código ${code}`);
     showMenu(); // Voltar ao menu após o bot ser encerrado
   });
 }
@@ -56,11 +46,11 @@ function openFile(filePath) {
   if (fs.existsSync(filePath)) {
     exec(`start ${filePath}`, (err) => {
       if (err) {
-        console.error(chalk.red(`Erro ao abrir o arquivo: ${filePath}`));
+        console.error(`Erro ao abrir o arquivo: ${filePath}`);
       }
     });
   } else {
-    console.error(chalk.red(`Arquivo não encontrado: ${filePath}`));
+    console.error(`Arquivo não encontrado: ${filePath}`);
   }
 }
 
@@ -78,11 +68,11 @@ function showMenu() {
         showMenu(); // Voltar ao menu
         break;
       case 'Sair':
-        console.log(chalk.blueBright('Encerrando... Até logo! 👋'));
+        console.log('Encerrando... Até logo! 👋');
         process.exit(0);
         break;
       default:
-        console.log(chalk.red('Opção inválida.'));
+        console.log('Opção inválida.');
         showMenu();
         break;
     }
